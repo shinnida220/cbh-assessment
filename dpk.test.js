@@ -11,10 +11,17 @@ describe("deterministicPartitionKey", () => {
     expect(trivialKey).toBe("0");
   });
 
-  it("Returns the literal '0' when given an empty value ", () => {
-    const trivialKey = deterministicPartitionKey('  ');
+  it("Returns a value of length 128 characters when given an empty strings of any length ", () => {
+    const trivialKey = deterministicPartitionKey(' ');
+    const trivialKey2 = deterministicPartitionKey('  ');
+
     expect(trivialKey.length).toEqual(128);
+    expect(trivialKey2.length).toEqual(128);
+
+    expect(trivialKey.length).toEqual(128);
+    expect(trivialKey2.length).toEqual(trivialKey2.length);
   });
+
 
   it("Returns a value of length 128 characters when given a non empty or zero value ", () => {
     const trivialKey = deterministicPartitionKey(1);
