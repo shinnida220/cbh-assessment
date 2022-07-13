@@ -37,6 +37,4 @@ describe("deterministicPartitionKey", () => {
     const trivialKey = deterministicPartitionKey({ partialKey: 'abcdwxyz' });
     expect(trivialKey.length).toEqual(128);
   });
-
-
 });
